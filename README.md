@@ -229,7 +229,7 @@ $
 
 # <u>Execution Instructions</u>
 
-**Required:** The program is **intended for Linux only**. More specifically, I have only tested the program on **Centos 7** via docker and school engineering servers.
+**Required:** The program is **intended for Linux only**. More specifically, I have only tested the program on **Centos 7** via docker and school engineering servers (Centos as well).
 
 <u>Included Files:</u>
 
@@ -237,23 +237,30 @@ $
 2. **README.md**
 3. **makefile**
 
-Commands to enter in the command line:
+<u>Commands to enter in the command line:</u>
+
 1. `make` 
-make  will produce a executable named **smallsh**
-Launch the executable file by entering: `./smallsh`  via command line (current directory when entering the command should be the same directory as the 
-smallsh executable file.)
+* make  will produce a executable named **smallsh**
+2. `./smallsh` 
+   * Launch the executable file by entering: `./smallsh`  via command line (current directory when entering the command should be the same directory as the 
+     smallsh executable file.)
 
 Default **`CFLAGS`**  values at compilation: `CFLAGS = '-g -v -Wall -pedantic -std=c99'`
-Overriding CFlags (e.g. use only -std=c99 flag or -w std=c99)**
+Overriding CFlags (e.g. use only -std=c99 flag or -w std=c99)
+
 You can override the default CFLAGS variable values in the makefile and set your own CFLAGS values (flags used at command line compilation)
+
 To do so, add `CFLAGS='your flags here -std=c99'` (case-sensitive) after the `make` command.
+
 Note: CLFAGS values are in **single quotes**(e.g. CFLAGS=**'**    **'**)
+
 Note: Always include `-std=c99` at the end of your CFLAGS values within the single quotes.
+
 e.g. `CFLAGS=' your flags -std=c99'`
 Example: `make CFLAGS='-w -std=c99'`
 
-**debug mode:**  make debug 
-`make debug` will compile the files and launch the executable in valgrind
+* **debug mode:**  make debug 
+  `make debug` will compile the files and launch the executable in valgrind
 
 ### 2. Important
 * Please run `make clean` in the command line if you want to do a "clean" restart of the program.
@@ -263,8 +270,7 @@ Example: `make CFLAGS='-w -std=c99'`
 * `make clean`
 * This cleans up all created object files
 
-
-** Sources and References **
+**Sources and References**
 
 * The Linux Programming Interface (Chapters 5, 6, 7, 20, 21, 22, 24, 25, 26, 27, 28) by Michael Kerrisk
 * Modules in coursework on Processes, Signals

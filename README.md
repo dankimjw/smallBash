@@ -229,7 +229,7 @@ $
 
 # <u>Execution Instructions</u>
 
-**Required:** The program is **intended for Linux only**. More specifically, I have only tested the program on **Centos 7** via docker and school engineering servers (Centos as well).
+**Required:** The program is **intended for Unix systems only**. More specifically, I have only tested the program on **CentOS 7** via docker and school engineering servers (CentOS as well).
 
 <u>Included Files:</u>
 

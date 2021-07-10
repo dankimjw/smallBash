@@ -266,10 +266,8 @@ void cd_command(Commands* cmds) {
         //Get home directory
         chdir(getenv("HOME"));					
     }
-
     //Get new current directory
     getcwd(cwd, sizeof(cwd));
-
     //Output the new directory to terminal
     printf("%s\n", cwd);
     //Clear stdout
@@ -421,8 +419,7 @@ void get_user_input(Commands* cmds) {
     (cmds)->numArgs = 0;
 
     //Input tokenization step:
-    //Tokenize inputBuffer delimited by spaces " "  
-    // 
+    //Tokenize inputBuffer delimited by spaces " "
     int arg_count = 0;
     //Begin tokenization
     token = strtok(inputBuffer, " ");
@@ -515,7 +512,6 @@ void exec_other_commands(Commands* cmds) {
     int fileDescriptor;
     //Iterator variable
     int i = 0;
-
     // --------------- Process executed in FOREGROUND -------------------------
     //Check if this is a background process
     //Loop through tokens
@@ -576,7 +572,6 @@ void exec_other_commands(Commands* cmds) {
         }
         //Redirect input stdin to "/dev/null" 
         dup2(fileDescriptor, 0);
-
         //redirect the output to /dev/null so 
         //that the input does not print
         //to the terminal and check for errors
@@ -643,13 +638,11 @@ int main() {
     sigfillset(&SIGINT_action.sa_mask);
     sigaction(SIG_IGN, &SIGINT_action, NULL);
 
-
     //signal handler to redirect ^Z
     SIGTSTP_action.sa_handler = &handler_SIGTSTP;
     sigfillset(&SIGTSTP_action.sa_mask);
     SIGTSTP_action.sa_flags = SA_RESTART;
     sigaction(SIGTSTP, &SIGTSTP_action, NULL);
-
 
     //Commands struct Pointer
     Commands* ptrCMDS;
@@ -678,7 +671,6 @@ int main() {
         if (ptrCMDS->inputArgs[0] == NULL || strncmp(ptrCMDS->inputArgs[0], "#", 1) == 0) {
             //do nothing
         }
-
         // Check user input for the "status" command
         else if (strcmp(ptrCMDS->inputArgs[0], "status") == 0) {
             //call check_status
@@ -706,7 +698,6 @@ int main() {
             cd_command(ptrCMDS);
         }
         else {
-
             //--------------Create child process ----------------------
             // fork Child Process and execute custom command
             // CHILD PROCESS
@@ -781,7 +772,6 @@ int main() {
             //Continue monitoring for any child process that terminates
             pid = waitpid(-1, &(ptrCMDS->processStatus), WNOHANG);
         }
-
     }
     return 0;
 }

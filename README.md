@@ -1,6 +1,6 @@
 README
 
-# Project: Smallsh
+# Project: Custom Shell
 ## A portfolio project for "Operating Systems" 
 
 ## **Author: Daniel Kim**
